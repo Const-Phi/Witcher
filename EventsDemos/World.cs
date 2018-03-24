@@ -14,7 +14,8 @@ namespace EventsDemos
             units = new List<Unit>
             {
                 new Witcher("Geralt"),
-                new Witcher("Ciri")
+                new Witcher("Ciri"),
+                new Witcher("Axcel"),
             };
 
             var witchers = units.OfType<Witcher>();
