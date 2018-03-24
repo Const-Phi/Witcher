@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace EventsDemos
 {
-    class Witcher : Unit, INotifyPropertyChanged
+    public class Witcher : Unit, INotifyPropertyChanged
     {
         public event EventHandler<Spell> SpellCast;
 
@@ -34,15 +34,14 @@ namespace EventsDemos
             {
                 manaLevel = value;
 
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(ManaLevel)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ManaLevel)));
             }
         }
 
         public void Cast()
         {
             var spell = new Spell("Aarand", 10);
-            if (!ReferenceEquals(SpellCast, null))
-                SpellCast.Invoke(this, spell);
+            SpellCast?.Invoke(this, spell);
         }
 
         public override string ToString() => 

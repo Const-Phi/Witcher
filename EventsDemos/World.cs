@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace EventsDemos
 {
-    public class World
+    public sealed class World
     {
-        List<Unit> units;
+        private readonly List<Unit> units;
 
         public World()
         {
@@ -26,7 +26,7 @@ namespace EventsDemos
             }
         }
 
-        private void Witcher_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private static void Witcher_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             var witcher = sender as Witcher;
             if (witcher == null)
@@ -42,13 +42,13 @@ namespace EventsDemos
                 witcher.Cast();
         }
 
-        private void OnSpellCast(object sender, Spell spell)
+        private static void OnSpellCast(object sender, Spell spell)
         {
             var witcher = sender as Witcher;
             if (witcher == null)
                 return;
 
-            Console.WriteLine($"{witcher.Name} cast spell '{spell.Title}'.");
+            Console.WriteLine($"{witcher.Name} cast spell \"{spell.Title}\".");
         }
     }
 }
