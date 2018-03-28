@@ -13,10 +13,10 @@ namespace EventsDemos
         {
             Name = name;
             
-            SpellCast += OnSpellCast;
+            //SpellCast += OnSpellCast;
         }
 
-        protected override void OnSpellCast(object sender, Spell spell)
+        public override void OnSpellCast(object sender, Spell spell)
         {
             if (ReferenceEquals(this, sender))
             {

@@ -23,6 +23,8 @@ namespace EventsDemos
             {
                 witcher.PropertyChanged += Witcher_PropertyChanged;
                 witcher.SpellCast += OnSpellCast;
+                // it's bad practices but it changes order of calling event-handlers
+                witcher.SpellCast += witcher.OnSpellCast;
             }
         }
 

@@ -22,6 +22,6 @@ namespace EventsDemos
             }
         }
 
-        protected abstract void OnSpellCast(object sender, Spell spell);
+        public abstract void OnSpellCast(object sender, Spell spell);
     }
 }
